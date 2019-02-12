@@ -1,0 +1,4 @@
+- Update README
+    - Usage instructions (Windows / Linux)
+- Make sure filenames make sense?
+- Code Review
