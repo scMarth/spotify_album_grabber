@@ -1,4 +1,4 @@
-# spotify_album_grabber
+# spotify_album_thumb_grabber
 
 Usage:
 
