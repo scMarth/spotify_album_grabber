@@ -10,5 +10,9 @@ Usage:
   - **Windows**
     - Install Python3
     - Install **urllib** and **requests** with pip
+      - Go to `C:\Users\[username]\AppData\Local\Programs\Python\Python37-32\Scripts`
+      - Open CMD in that location
+      - `> pip install requests`
+      - `> pip install urllib`
     - In CMD, PowerShell, or Git Bash, CD to the location where you cloned this project
     - `> py spotify_album_thumb_grabber.py`
