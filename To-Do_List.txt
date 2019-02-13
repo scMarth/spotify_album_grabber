@@ -1,3 +1,2 @@
 - Update README
     - Usage instructions (Windows / Linux)
-- Code review, comment/clean code
