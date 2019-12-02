@@ -1,2 +1,5 @@
 - Update README
     - Usage instructions (Windows / Linux)
+
+- https://open.spotify.com/album/7os43c6BUhMJkDUaEtDufk
+    extract other metadata like album name, artist, year, (esp. long lists of artists)
