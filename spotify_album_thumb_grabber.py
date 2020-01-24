@@ -7,7 +7,7 @@ config = {
 }
 
 
-with open(r'./album_urls.txt', 'r') as file:
+with open(os.path.dirname(__file__) + r'/album_urls.txt', 'r') as file:
     for line in file:
         r = requests.get(line.strip()) # Get the HTML
         try:
