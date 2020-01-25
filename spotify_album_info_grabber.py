@@ -108,7 +108,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 # use this to specify the output path of downloaded thumb images
 config = {
     'specify_album_art_path' : True,
-    'album_art_path' : r'C:\Users\vince\Pictures\Album Art',
+    'album_art_path' : r'',
     'specify_album_info_path' : True,
     'album_info_path' : script_dir + '/album_info/'
 }
