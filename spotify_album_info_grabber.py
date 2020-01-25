@@ -102,20 +102,37 @@ def debug_print(html_data, dir_path, file_name):
     with open(dir_path + '/' + file_name, 'w', encoding='utf-8') as debug_file:
         debug_file.write(html_data)
 
+# get the path to the directory that this script resides in
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
 # use this to specify the output path of downloaded thumb images
 config = {
-    'specify_path' : False,
-    'album_art_path' : r'C:\Users\vince\Pictures\Album Art'
+    'specify_album_art_path' : True,
+    'album_art_path' : r'C:\Users\vince\Pictures\Album Art',
+    'specify_album_info_path' : True,
+    'album_info_path' : script_dir + '/album_info/'
 }
-
-script_dir = os.path.dirname(os.path.abspath(__file__))
 
 with open(script_dir + r'/album_urls.txt', 'r') as file:
     for line in file:
         r = requests.get(line.strip()) # Get the HTML
         # debug_print(r.text, script_dir, 'debug.txt')
         try:
-            print_album_info(r.text, script_dir, config['album_art_path'] if config['specify_path'] else script_dir)
+            
+            # create output directories if they don't exist
+            if config['specify_album_info_path']:
+                if not os.path.exists(config['album_info_path']):
+                    os.mkdir(config['album_info_path'])
+
+            if config['specify_album_art_path']:
+                if not os.path.exists(config['album_art_path']):
+                    os.mkdir(config['album_art_path'])
+
+            print_album_info(
+                r.text,
+                config['album_info_path'] if config['specify_album_info_path'] else script_dir,
+                config['album_art_path'] if config['specify_album_art_path'] else script_dir
+            )
         except:
             try:
                 # If something went wrong, try to dump the result of the request
