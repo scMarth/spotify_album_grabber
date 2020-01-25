@@ -2,8 +2,8 @@ import requests, re, urllib, os
 
 # use this to specify the output path of downloaded thumb images
 config = {
-    'specify_path' : False,
-    'album_art_path' : r''
+    'specify_path' : True,
+    'album_art_path' : r'C:\Users\vince\Pictures\Album Art'
 }
 
 
