@@ -1,9 +1,11 @@
 import requests, re, urllib, os
 
 def download_album_thumb(html_data, dir_path):
-    expression = r'<meta[\s]+property="og:image"[\s]+content="(http[^"]+)"'
-    img_url = re.findall(expression, html_data)[0]                     # Find image url from the HTML
-    img_name = re.findall(r'([^/]+)$', img_url)[0] + ".jpg"         # Make a filename based on the url
+
+    # find the image url from the html
+    img_url = find_expr_in_html(r'<meta[\s]+property="og:image"[\s]+content="(http[^"]+)"', html_data)[0]
+    # make a filename based on the url
+    img_name = re.findall(r'([^/]+)$', img_url)[0] + ".jpg"
 
     print(img_url)
     print(img_name)
@@ -11,7 +13,8 @@ def download_album_thumb(html_data, dir_path):
     file_path = dir_path + '\\' + img_name
     urllib.request.urlretrieve(url=img_url, filename=file_path)      # Download the image
 
-
+def find_expr_in_html(expr, html):
+    return re.findall(expr, html, re.S)
 
 def print_album_info(html_data, destination):
 
@@ -37,8 +40,22 @@ def print_album_info(html_data, destination):
     # get the track data
     # expression = r'<li[\s]+class="tracklist-row[\s]+js-track-row[\s+]tracklist-row--track[\s+]track-has-preview.*</li>'
     expression = r'<li[\s]+class="tracklist-row[\s]+js-track-row[\s]+tracklist-row--track.*?</li>'
-    track_html = re.findall(expression, html_data, re.S)
-    print(len(track_html))
+    tracks_html = re.findall(expression, html_data, re.S)
+    track_data = {}
+    for track_html in tracks_html:
+
+        # get the track number
+        sub_expr = r'data-position="([^"]+)"'
+        track_num = re.findall(sub_expr, track_html, re.S)[0]
+        track_data['track_number'] = track_num
+        
+        # get the song name
+        sub_expr = r'<span[\s]+class="track-name[^>]*>([^<]+)</span>'
+        song_title = re.findall(sub_expr, track_html, re.S)[0]
+        print(song_title)
+
+
+
 
 
 
