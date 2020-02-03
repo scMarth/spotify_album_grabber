@@ -1,12 +1,12 @@
-# spotify_album_thumb_grabber
+# spotify_album_info_grabber
 
 Usage:
 
 - Clone this repository to a desired location
 - Paste the url for an album in **album_urls.txt**, one per line
-- Run **spotify_album_thumb_grabber.py** with Python3
+- Run **spotify_album_info_grabber.py** with Python3
   - **Linux**
-    - `$ python3 spotify_album_thumb_grabber.py`
+    - `$ python3 spotify_album_info_grabber.py`
   - **Windows**
     - Install Python3
     - Install **urllib** and **requests** with pip
@@ -15,4 +15,4 @@ Usage:
       - `> pip install requests`
       - `> pip install urllib`
     - In CMD, PowerShell, or Git Bash, CD to the location where you cloned this project
-    - `> py spotify_album_thumb_grabber.py`
+    - `> py spotify_album_info_grabber.py`
