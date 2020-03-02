@@ -18,16 +18,25 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
     '''
     <h2>By <a href="/artist/7dGJo4pcD2V6oG8kP0tJRR?highlight=spotify%3Atrack%3A7FIWs0pqAYbP91WWM0vlTQ">Eminem</a></h2>
     '''
+    artist_name_data = None
+    artist_names = None
+    try:
+        artist_name_data = find_expr_in_html(
+            r'<h2>By[\s]+<a[\s]+href="/artist/[^"]+">.*?</a></h2>',
+            html_data
+        )[0]
 
-    artist_name_data = find_expr_in_html(
-        r'<h2>By[\s]+<a[\s]+href="/artist/[^"]+">.*?</a></h2>',
-        html_data
-    )[0]
+        artist_names = ', '.join(find_expr_in_html(
+            r'<a[\s]+href="/artist/[^"]+">([^<]+)</a>',
+            artist_name_data
+        ))
+    except:
+        artist_name_data = find_expr_in_html(
+            r'<h2>By Various Artists</h2>',
+            html_data
+        )[0]
 
-    artist_names = ', '.join(find_expr_in_html(
-        r'<a[\s]+href="/artist/[^"]+">([^<]+)</a>',
-        artist_name_data
-    ))
+        artist_names = 'Various Artists'
 
     # get the year and number of songs
     year_and_num_songs = find_expr_in_html(
@@ -86,7 +95,7 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     album_info_file = album_info_destination + '/' + unique_id + '_info.txt'
     with open(album_info_file, 'w') as info_file:
-        info_file.write(album_name + '\n')
+        info_file.write(unescape_html(album_name) + '\n')
         info_file.write(artist_names + '\n')
         info_file.write(year_and_num_songs[0] + '\n')
         info_file.write(year_and_num_songs[1] + '\n\n')
