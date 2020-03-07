@@ -1,4 +1,4 @@
-import requests, re, urllib, os, html
+import requests, re, urllib, os, html, shutil
 
 # return unescaped html
 def unescape_html(html_data):
@@ -124,12 +124,27 @@ def debug_print(html_data, dir_path, file_name):
 # get the path to the directory that this script resides in
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# use this to specify the output path of downloaded thumb images
+'''
+    specify_album_art_path (bool): If True, album art will be written to
+        'album_art_path'. If False, album art will be written to the same
+        location as this script
+
+    album_art_path (str): The directory that album art will be written to
+        if 'specify_album_art_path' is True.
+
+    specify_album_info_path (bool): If True, album info will be written to
+        'album_info_path'. If False, album info will be written to the same
+        location as this script
+
+    clear_album_info (bool): If True, clears the contents of 'album_info_path',
+        only if 'album_art_path' is True.
+'''
 config = {
     'specify_album_art_path' : False,
     'album_art_path' : r'',
     'specify_album_info_path' : True,
-    'album_info_path' : script_dir + '/album_info/'
+    'album_info_path' : script_dir + '/album_info/',
+    'clear_album_info' : True
 }
 
 with open(script_dir + r'/album_urls.txt', 'r') as file:
@@ -137,9 +152,13 @@ with open(script_dir + r'/album_urls.txt', 'r') as file:
         r = requests.get(line.strip()) # Get the HTML
         # debug_print(r.text, script_dir, 'debug.txt')
         try:
-            
+
             # create output directories if they don't exist
             if config['specify_album_info_path']:
+                if config['clear_album_info']:
+                    if os.path.exists(config['album_info_path']):
+                        shutil.rmtree(config['album_info_path'])
+
                 if not os.path.exists(config['album_info_path']):
                     os.mkdir(config['album_info_path'])
 
