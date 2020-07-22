@@ -1,2 +1,25 @@
 - Update README
     - Usage instructions (Windows / Linux)
+
+Buggy URLS:
+    https://open.spotify.com/album/2SbILgEL3qpj1YaqcoVIoL?highlight=spotify:track:3Nk2Dc7Zp9B4drbPkKYn6z
+
+    - doesn't get all of them
+
+    https://open.spotify.com/album/2VMGv3inRLPM4GOMXf37qu
+
+    - glitched out album string
+
+    encoding messes up output text
+    - https://open.spotify.com/album/6M4VOF1ExBRii1x20Pk0GR
+
+    - https://open.spotify.com/album/35M71S29eZpJgGh2G7uzw4 (probably Korean letters)
+
+    inconsistent
+    - https://open.spotify.com/album/2gZmrByp6yiyePHi3dzZ1d
+
+    Chinese characters
+    - https://open.spotify.com/album/7lEf7gHC3ijBLfMaJUwGO7
+
+    Encoding again...
+    - https://open.spotify.com/album/39sypxAyq6TZFqz8CMK3tJ
