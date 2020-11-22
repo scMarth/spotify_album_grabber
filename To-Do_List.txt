@@ -23,3 +23,6 @@ Buggy URLS:
 
     Encoding again...
     - https://open.spotify.com/album/39sypxAyq6TZFqz8CMK3tJ
+
+    https://open.spotify.com/album/6fCKQaXvHahkOfGO0BvGSr
+    https://open.spotify.com/album/4NOT6Gz2SPAsLFkVH9wqk9

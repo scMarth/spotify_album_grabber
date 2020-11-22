@@ -112,7 +112,7 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
             info_file.write(artist_names + ' - ' + track['song title'])
             if track['featured artists']:
                 info_file.write(' ft. ' + ', '.join(track['featured artists']))
-            info_file.write('\n')
+            info_file.write('.mp3\n')
 
             info_file.write('\n')
 
