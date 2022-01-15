@@ -26,3 +26,14 @@ Buggy URLS:
 
     https://open.spotify.com/album/6fCKQaXvHahkOfGO0BvGSr
     https://open.spotify.com/album/4NOT6Gz2SPAsLFkVH9wqk9
+
+    https://open.spotify.com/album/2HICqd0ltMKNrkhfmWSuKy
+
+    https://open.spotify.com/album/0M5ANuYRJNLSjds7oleNh3
+
+
+    https://open.spotify.com/album/1Zr1WrovwsuCOVq5D8lli2
+
+    https://open.spotify.com/album/0MSicRahv1o4WgJ6pXjUkg
+
+    https://open.spotify.com/playlist/6g1e1m5IVzqsFKBzkSTW0L
