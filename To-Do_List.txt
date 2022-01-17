@@ -37,3 +37,11 @@ Buggy URLS:
     https://open.spotify.com/album/0MSicRahv1o4WgJ6pXjUkg
 
     https://open.spotify.com/playlist/6g1e1m5IVzqsFKBzkSTW0L
+
+
+    https://open.spotify.com/album/1C2h7mLntPSeVYciMRTF4a
+    https://open.spotify.com/album/4sLtOBOzn4s3GDUv3c5oJD
+    https://open.spotify.com/album/5n2BlI05Ikjf98aQL3vv8H
+    https://open.spotify.com/album/6tUQPKlpR4x1gjrXTtOImI
+    https://open.spotify.com/album/0M5ANuYRJNLSjds7oleNh3
+    https://open.spotify.com/album/6M4VOF1ExBRii1x20Pk0GR
