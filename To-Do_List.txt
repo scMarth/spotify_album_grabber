@@ -2,6 +2,7 @@
     - Usage instructions (Windows / Linux)
 
 Buggy URLS:
+    st
     https://open.spotify.com/album/2SbILgEL3qpj1YaqcoVIoL?highlight=spotify:track:3Nk2Dc7Zp9B4drbPkKYn6z
 
     - doesn't get all of them
