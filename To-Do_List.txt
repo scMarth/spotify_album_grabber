@@ -2,47 +2,29 @@
     - Usage instructions (Windows / Linux)
 
 Buggy URLS:
-    st
     https://open.spotify.com/album/2SbILgEL3qpj1YaqcoVIoL?highlight=spotify:track:3Nk2Dc7Zp9B4drbPkKYn6z
 
     - doesn't get all of them
 
     https://open.spotify.com/album/2VMGv3inRLPM4GOMXf37qu
-
-    - glitched out album string
-
-    encoding messes up output text
-    - https://open.spotify.com/album/6M4VOF1ExBRii1x20Pk0GR
-
-    - https://open.spotify.com/album/35M71S29eZpJgGh2G7uzw4 (probably Korean letters)
-
-    inconsistent
-    - https://open.spotify.com/album/2gZmrByp6yiyePHi3dzZ1d
-
-    Chinese characters
-    - https://open.spotify.com/album/7lEf7gHC3ijBLfMaJUwGO7
-
-    Encoding again...
-    - https://open.spotify.com/album/39sypxAyq6TZFqz8CMK3tJ
-
-    https://open.spotify.com/album/6fCKQaXvHahkOfGO0BvGSr
-    https://open.spotify.com/album/4NOT6Gz2SPAsLFkVH9wqk9
-
-    https://open.spotify.com/album/2HICqd0ltMKNrkhfmWSuKy
-
-    https://open.spotify.com/album/0M5ANuYRJNLSjds7oleNh3
-
-
-    https://open.spotify.com/album/1Zr1WrovwsuCOVq5D8lli2
-
     https://open.spotify.com/album/0MSicRahv1o4WgJ6pXjUkg
-
+    
+    - still fails
     https://open.spotify.com/playlist/6g1e1m5IVzqsFKBzkSTW0L
 
-
+working:
     https://open.spotify.com/album/1C2h7mLntPSeVYciMRTF4a
     https://open.spotify.com/album/4sLtOBOzn4s3GDUv3c5oJD
     https://open.spotify.com/album/5n2BlI05Ikjf98aQL3vv8H
     https://open.spotify.com/album/6tUQPKlpR4x1gjrXTtOImI
     https://open.spotify.com/album/0M5ANuYRJNLSjds7oleNh3
     https://open.spotify.com/album/6M4VOF1ExBRii1x20Pk0GR
+    https://open.spotify.com/album/39sypxAyq6TZFqz8CMK3tJ
+    https://open.spotify.com/album/7lEf7gHC3ijBLfMaJUwGO7
+    https://open.spotify.com/album/6M4VOF1ExBRii1x20Pk0GR
+    https://open.spotify.com/album/35M71S29eZpJgGh2G7uzw4
+    https://open.spotify.com/album/6fCKQaXvHahkOfGO0BvGSr
+    https://open.spotify.com/album/4NOT6Gz2SPAsLFkVH9wqk9
+    https://open.spotify.com/album/2HICqd0ltMKNrkhfmWSuKy
+    https://open.spotify.com/album/1Zr1WrovwsuCOVq5D8lli2
+    https://open.spotify.com/album/2gZmrByp6yiyePHi3dzZ1d

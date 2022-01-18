@@ -9,13 +9,6 @@ def find_expr_in_html(expr, html):
 
 def print_album_info(html_data, album_info_destination, album_thumb_destination):
     print('\n\n')
-    print('print_album_info reached')
-
-    # <meta property="og:title" content="Thriller 25 Super Deluxe Edition" />
-
-    # <title>A Star Is Born Soundtrack - Album by Lady Gaga, Bradley Cooper | Spotify</title><meta name="description" content="Listen to A Star Is Born Soundtrack on Spotify. Lady Gaga · Album · 2018 · 34 songs." />
-
-    # <title>Thriller 25 Super Deluxe Edition - Album by Michael Jackson | Spotify</title><meta name="description" content="Listen to Thriller 25 Super Deluxe Edition on Spotify. Michael Jackson · Album · 1982 · 30 songs." />
 
     # get the album name
     album_name = find_expr_in_html(
@@ -25,10 +18,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
     print('album_name: ' + album_name)
 
     # get the artist name
-    '''
-    <h2>By <a href="/artist/7dGJo4pcD2V6oG8kP0tJRR?highlight=spotify%3Atrack%3A7FIWs0pqAYbP91WWM0vlTQ">Eminem</a></h2>
-    <a href="/artist/3fMbdgg4jU18AjLCKBhRSm">Michael Jackson</a>
-    '''
     artist_name_data = None
     artist_names = None
     try:
@@ -41,8 +30,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
             r'<title>.*? - [a-zA-Z]+ by (.*?) \| Spotify</title><meta',
             html_data
         )[0]
-        print('hi')
-        print(artist_names)
     except:
         pass
 
@@ -50,9 +37,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
     print(artist_name_data)
     print('artist_names:')
     print(artist_names)
-
-
-    # <title>Thriller 25 Super Deluxe Edition - Album by Michael Jackson | Spotify</title><meta name="description" content="Listen to Thriller 25 Super Deluxe Edition on Spotify. Michael Jackson · Album · 1982 · 30 songs." />
 
     # get the year and number of songs
     year_and_num_songs = find_expr_in_html(
@@ -62,12 +46,8 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     year_and_num_songs = year_and_num_songs.split(' · ')
 
-
     print('year_and_num_songs')
     print(year_and_num_songs)
-
-    # Spotify</title><meta name="description" content="Listen to Thriller 25 Super Deluxe Edition on Spotify. Michael Jackson · Album · 1982 · 30 songs."
-
 
     # get the track data
     tracks_html = find_expr_in_html(
@@ -80,9 +60,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
     for track_html in tracks_html:
 
         track_info = {}
-
-
-        # 1</span><div type="track"
 
         # get the track number
         track_num = find_expr_in_html(r'([0-9]+)</span><div type="track"', track_html)[0]
@@ -97,8 +74,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
         song_title = unescape_html(song_title) # unescape html
         print('song_title:{}'.format(song_title))
         track_info['song title'] = song_title
-
-        # <a href="/artist/3fMbdgg4jU18AjLCKBhRSm">Michael Jackson</a></span>
 
         # get featured artists
         featured_artists = find_expr_in_html(
@@ -116,8 +91,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
     print(track_data)
 
     # download the album thumb
-
-    # ><meta property="og:image" content="https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be"
 
     # find the image url from the html
     img_url = find_expr_in_html(
@@ -151,7 +124,6 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
             info_file.write('.mp3\n')
 
             info_file.write('\n')
-    # sys.exit()
 
 # debug dump html data to a target directory
 def debug_print(html_data, dir_path, file_name):
@@ -215,4 +187,3 @@ with open(script_dir + r'/album_urls.txt', 'r') as file:
                 debug_print(r.text, script_dir, debug_filename)
             except:
                 continue
-        # sys.exit()
