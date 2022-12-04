@@ -12,6 +12,12 @@ Buggy URLS:
     - still fails
     https://open.spotify.com/playlist/6g1e1m5IVzqsFKBzkSTW0L
 
+    - some bad formatted output text
+    https://open.spotify.com/album/7wpcdsAaKrXbpIj8Qri56P
+
+    - partial info, no track info
+    https://open.spotify.com/album/4gR3h0hcpE1iJH0v5bVv78
+
 working:
     https://open.spotify.com/album/1C2h7mLntPSeVYciMRTF4a
     https://open.spotify.com/album/4sLtOBOzn4s3GDUv3c5oJD
