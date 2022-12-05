@@ -7,16 +7,7 @@ Buggy URLS:
     - doesn't get all of them
 
     https://open.spotify.com/album/2VMGv3inRLPM4GOMXf37qu
-    https://open.spotify.com/album/0MSicRahv1o4WgJ6pXjUkg
-    
-    - still fails
-    https://open.spotify.com/playlist/6g1e1m5IVzqsFKBzkSTW0L
-
-    - some bad formatted output text
-    https://open.spotify.com/album/7wpcdsAaKrXbpIj8Qri56P
-
-    - partial info, no track info
-    https://open.spotify.com/album/4gR3h0hcpE1iJH0v5bVv78
+    https://open.spotify.com/album/0MSicRahv1o4WgJ6pXjUkg (inconsistent html)
 
 working:
     https://open.spotify.com/album/1C2h7mLntPSeVYciMRTF4a

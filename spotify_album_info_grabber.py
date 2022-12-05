@@ -25,7 +25,10 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
             r'<title>.*? on Spotify. (.*?) · [a-zA-Z]+',
             html_data
         )[0]
+    except:
+        pass
 
+    try:
         artist_names = find_expr_in_html(
             r'<title>.*? - [a-zA-Z]+ by (.*?) \| Spotify</title><meta',
             html_data
@@ -40,7 +43,7 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     # get the year and number of songs
     year_and_num_songs = find_expr_in_html(
-        r'<title>.*? on Spotify\. .*?· [a-zA-Z]+ \· (.*?) songs."',
+        r'<title>.*? on Spotify\. .*?· [a-zA-Z]+ · (.*?) songs."',
         html_data
     )[0]
 
@@ -51,18 +54,18 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     # get the track data
     tracks_html = find_expr_in_html(
-        r'<div data-testid="track-row" class=.*?></svg></button></span></div>',
+        r'<div class="[^"]*" data-testid="track-row".*?></svg></button></span></div>',
         html_data
     )
 
     track_data = []
-    print(len(tracks_html))
+    print("number of tracks found: {}".format(len(tracks_html)))
     for track_html in tracks_html:
 
         track_info = {}
 
         # get the track number
-        track_num = find_expr_in_html(r'([0-9]+)</span><div type="track"', track_html)[0]
+        track_num = find_expr_in_html(r'([0-9]+)</span><div class="', track_html)[0]
         print('track_num:{}'.format(track_num))
         track_info['track number'] = track_num
         
@@ -108,7 +111,7 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
     album_info_file = album_info_destination + '/' + unique_id + '_info.txt'
     with open(album_info_file, 'w', encoding='utf-8') as info_file:
         info_file.write(unescape_html(album_name) + '\n')
-        info_file.write(artist_names + '\n')
+        info_file.write(unescape_html(artist_names) + '\n')
         info_file.write(year_and_num_songs[0] + '\n')
         info_file.write(year_and_num_songs[1] + '\n\n')
 
@@ -159,7 +162,7 @@ config = {
 with open(script_dir + r'/album_urls.txt', 'r') as file:
     for line in file:
         r = requests.get(line.strip()) # Get the HTML
-        # debug_print(r.text, script_dir, 'debug.txt')
+        debug_print(r.text, script_dir, 'debug.txt')
         try:
 
             # create output directories if they don't exist
