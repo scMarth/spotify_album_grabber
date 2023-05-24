@@ -54,7 +54,7 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     # get the track data
     tracks_html = find_expr_in_html(
-        r'<div class="[^"]*" data-testid="track-row".*?></svg></button></span></div>',
+        r'<div class="Box[^"]*" role="group" aria-labelledby="listrow-title-track.*?</svg></button></div></div></div></div>',
         html_data
     )
 
@@ -65,13 +65,13 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
         track_info = {}
 
         # get the track number
-        track_num = find_expr_in_html(r'([0-9]+)</span><div class="', track_html)[0]
+        track_num = find_expr_in_html(r'([0-9]+)</span></div></div>', track_html)[0]
         print('track_num:{}'.format(track_num))
         track_info['track number'] = track_num
         
         # get the song name
         song_title = find_expr_in_html(
-            r'aria-label="track (.*?)"',
+            r'span class="ListRowTitle[^>]*>(.*?)</span></p>',
             track_html
         )[0]
         song_title = unescape_html(song_title) # unescape html
@@ -80,7 +80,7 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
         # get featured artists
         featured_artists = find_expr_in_html(
-            r'<a[\s]+href="/artist/[^>]*>([^<]+)</a>',
+            r'ListRowDetails[^>]*>(.*?)</span></p></div>',
             track_html
         )
         print('featured_artists:{}'.format(featured_artists))        
@@ -97,10 +97,11 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     # find the image url from the html
     img_url = find_expr_in_html(
-        r'<meta[\s]+property="og:image"[\s]+content="(http[^"]+)"',
-        
+        r'meta property="og:image" content="(http[^"]+)"',
         html_data
     )[0]
+    print('image url:')
+    print(img_url)
 
     # make a filename based on the url
     unique_id = find_expr_in_html(r'([^/]+)$', img_url)[0]
