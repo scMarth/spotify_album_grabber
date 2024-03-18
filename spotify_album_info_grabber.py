@@ -54,20 +54,23 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
     # get the track data
     tracks_html = find_expr_in_html(
-        r'<div class="Box[^"]*" role="group" aria-labelledby="listrow-title-track.*?</svg></button></div></div></div></div>',
+        r'<div class="Box[^"]*" data-encore-id="listRow" role="group" aria-labelledby="listrow-title-track.*?</svg></button></div></div></div></div>',
         html_data
     )
 
     track_data = []
     print("number of tracks found: {}".format(len(tracks_html)))
+    track_num_count = 0
     for track_html in tracks_html:
-
         track_info = {}
 
         # get the track number
-        track_num = find_expr_in_html(r'([0-9]+)</span></div></div>', track_html)[0]
-        print('track_num:{}'.format(track_num))
-        track_info['track number'] = track_num
+        # track_num = find_expr_in_html(r'([0-9]+)</span></div></div>', track_html)[0]
+        # track_num = find_expr_in_html(r'listrow-title-track-spotify:track:([0-9]+)', track_html)[0]
+        # print('track_num:{}'.format(track_num))
+        # track_info['track number'] = track_num
+        track_num_count += 1
+        track_info['track number'] = str(track_num_count)
         
         # get the song name
         song_title = find_expr_in_html(
@@ -80,10 +83,11 @@ def print_album_info(html_data, album_info_destination, album_thumb_destination)
 
         # get featured artists
         featured_artists = find_expr_in_html(
-            r'ListRowDetails[^>]*>(.*?)</span></p></div>',
+            r'listrow-subtitle-track[^>]*>(.*?)</p></div><div',
             track_html
         )
         print('featured_artists:{}'.format(featured_artists))        
+        print('')
 
         # for some reason, we need to doubly unescape artist names...
         featured_artists = [unescape_html(unescape_html(artist)) for artist in featured_artists]
